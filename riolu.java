@@ -70,6 +70,3 @@ public class riolu {
             this.hunger = hunger;
         }
     }
-
-
-
