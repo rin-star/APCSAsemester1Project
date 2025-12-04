@@ -1,4 +1,6 @@
 public class cleffa {
+    
+    private static int candy = 0;
     private String type;
     private int evolution;
     private int happiness;

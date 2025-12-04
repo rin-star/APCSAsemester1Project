@@ -1,4 +1,6 @@
 public class shinx{
+
+    private static int candy = 0;
     private String type;
     private int evolutionLevel;
     private int happiness;
