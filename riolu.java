@@ -24,9 +24,9 @@ public class riolu {
 
     public void evolve() {
         if (happiness >= 30) {
-            evolution level = 2;
+            evolutionLevel = 2;
+        }            System.out.print("Riolu has evolved into Lucario!");
         }
-        
         else {
             System.out.print("Riolu is not happy enough to evolve.");
         }
