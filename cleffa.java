@@ -1,22 +1,105 @@
 public class cleffa {
     
-    private static int candy = 0;
     private String type;
-    private int evolution;
+    private int evolutionLevel;
     private int happiness;
     private int energy;
     private int health;
     private int hunger;
 
+    // Constructor
     public cleffa() {
         this.type = "Fairy";
-        this.evolution = 1;
+        this.evolutionLevel = 1;
         this.happiness = 50;
         this.energy = 50;
         this.health = 100;
         this.hunger = 70;
 
     }
+    //display status
+    public void displayStatus() 
+        {
+        System.out.println("Pokemon Type: " + this.type);
+        System.out.println("Evolution Level: " + this.evolutionLevel);
+        System.out.println("Happiness: " + this.happiness);
+        System.out.println("Energy: " + this.energy);
+        System.out.println("Health: " + this.health);
+        System.out.println("Hunger: " + this.hunger);
+        }
+
+    // Methods
+    public void randomEvent() {
+        int occurence = (int)(Math.random() * 3) + 1;
+        if (occurence == 1) {
+            int randomChoice = (int)(Math.random() * 2) + 1;
+            if (randomChoice == 1) {
+                System.out.println("You found a rare candy!");
+                candy.addCandy();
+            }
+        }
+    }
+
+    public void play() {
+        System.out.println("Your Pokemon is playing!");
+        this.happiness += 10;
+        this.energy -= 5;
+    }
+
+    public void feed() {
+        this.hunger += 10;
+        if (this.health + 5 <= 100) {
+            this.health += 5;
+            System.out.println("Your Pokemon has been fed and feels healthier!");
+        }
+        else {
+            System.out.println("Your Pokemon has been fed!");
+            this.health += 100 - this.health;
+        }
+    }
+        public void fightTrainer() {
+        System.out.println("Your pokemon is fighting a trainer!");
+        int randNum = (int)(Math.random() * 3) + 1;
+        if (randNum == 1) {
+            System.out.print("Your pokemon won the fight!");
+            this.happiness += 40;
+            this.energy -= 20;
+        }
+        if (randNum == 2) {
+            System.out.print("Your pokemon lost the fight!");
+            this.health -= 40;
+            this.energy -= 30;
+        }
+        else {
+            System.out.print("The fight was a draw!");
+            this.energy -= 20;
+        }
+    }
+
+    public void giveBath() {
+        if (!"Fire".equals(this.type)) {
+            System.out.println("Your Pokemon is taking damage from the bath.");
+            System.out.println("Your Pokemon is a fire type, don't bathe it!");
+            this.health -= 5;
+            this.happiness -= 10;
+        }
+        
+        else {
+            System.out.println("Your Pokemon is enjoying the bath!");
+            this.happiness += 10;
+        }
+        
+    }
+
+    public void heal(){
+        System.out.println("Time to heal your Pokemon using... a potion!!");
+        System.out.println("--A Berry Juice was used.--");
+        if(this.health <= 80){
+            this.health += 20;
+        }else {
+            this.health += 100 - this.health;
+        }
+    }   
     
     // Getter and Setter for type
     public String getType() {
@@ -29,11 +112,11 @@ public class cleffa {
 
     // Getter and Setter for evolution
     public int getEvolution() {
-        return evolution;
+        return evolutionLevel;
     }
 
     public void setEvolution(int evolution) {
-        this.evolution = evolution;
+        this.evolutionLevel = evolution;
     }
 
     // Getter and Setter for happiness

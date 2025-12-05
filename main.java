@@ -13,96 +13,71 @@ interface mainInterface {
 }
 
 class riolu implements mainInterface {
-    @Override
-    public int randomEvent(){
-        int randomNum2 = 0;
-        int randomNum = (int)(Math.random() * 3) + 1;
-        if ( randomNum == 1){
-            randomNum2 = (int)(Math.random() * 2) + 1;
-            
-        }
-        return randomNum2;
-    }
-
-    @Override
-    public void displayStatus(){
-        
-    }
+    
 }
 
 class shinx implements mainInterface {
     @Override
-    public int randomEvent(){
-        int randomNum2 = 0;
-        int randomNum = (int)(Math.random() * 3) + 1;
-        if ( randomNum == 1){
-            randomNum2 = (int)(Math.random() * 2) + 1;
-            
-        }
-        return randomNum2;
-    }
-
-    @Override
-    public void displayStatus(){
-        System.out.println("Shinx status displayed.");
-    }
+    
 }
 
 class litwick implements mainInterface {
     @Override
-    public int randomEvent(){
-        int randomNum2 = 0;
-        int randomNum = (int)(Math.random() * 3) + 1;
-        if ( randomNum == 1){
-            randomNum2 = (int)(Math.random() * 2) + 1;
-            
-        }
-        return randomNum2;
-    }
-
-    @Override
-    public void displayStatus(){
-        System.out.println("Litwick status displayed.");
-    }
+    
 }
 
 class cleffa implements mainInterface {
     @Override
-    public int randomEvent(){
-        int randomNum2 = 0;
-        int randomNum = (int)(Math.random() * 3) + 1;
-        if ( randomNum == 1){
-            randomNum2 = (int)(Math.random() * 2) + 1;
-            
-        }
-        return randomNum2;
-    }
     
-    @Override
-    public void displayStatus(){
-        System.out.println("Cleffa status displayed.");
-    }
 }
 
 
 
 public class main {
     public static void main(String[] args) {
-        riolu myRiolu = new riolu();
-        myRiolu.randomEvent();
-        myRiolu.displayStatus();
+        menu();
 
-        shinx myShinx = new shinx();
-        myShinx.randomEvent();
-        myShinx.displayStatus();
 
-        cleffa myCleffa = new cleffa();
-        myCleffa.randomEvent();
-        myCleffa.displayStatus();
-
-        litwick myLitwick = new litwick();
-        myLitwick.randomEvent();
-        myLitwick.displayStatus();
     }
 
+    public static void menu() {
+        Scanner input = new Scanner(System.in);
+        int choice = 0;
+
+        while (choice != 8) {
+            System.out.println("Choose an action:");
+            System.out.println("1. Display Status");
+            System.out.println("2. Evolve");
+            System.out.println("3. Fight");
+            System.out.println("4. Feed Pokemon");
+            System.out.println("5. Feed Candy");
+            System.out.println("6. Heal Pokemon");
+            System.out.println("7. Give Bath");
+            System.out.println("8. Exit");
+
+            System.out.print("Your choice: ");
+            choice = input.nextInt();
+
+            if (choice == 1) {
+                
+            }else if (choice == 2) {
+                
+            }else if (choice == 3) {
+                
+            }else if (choice == 4) {
+                
+            }else if (choice == 5) {
+                
+            }else if (choice == 6) {
+                
+            }else if (choice == 7) {
+                
+            }else if (choice == 8) {
+                
+            }else {
+                System.out.println("Invalid choice! Try again.");
+            }
+
+            System.out.println("");
+        }
 }

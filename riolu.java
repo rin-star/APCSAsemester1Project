@@ -1,7 +1,6 @@
 public class riolu {
 
-    private static int candy = 0;
-    private String type;
+    private final String type;
     private int evolutionLevel;
     private int happiness;
     private int energy;
@@ -17,21 +16,85 @@ public class riolu {
         this.health = 100;
         this.hunger = 70;
     }
-    public static void recieveCandy() {
-        System.out.print("Riolu found a candy! Candy added to inventory");
-        candy++;
-    }
+    //display status
+    public void displayStatus() 
+        {
+        System.out.println("Pokemon Type: " + this.type);
+        System.out.println("Evolution Level: " + this.evolutionLevel);
+        System.out.println("Happiness: " + this.happiness);
+        System.out.println("Energy: " + this.energy);
+        System.out.println("Health: " + this.health);
+        System.out.println("Hunger: " + this.hunger);
+        }
 
+     // Methods
+    public void play() {
+        System.out.println("Your Pokemon is playing!");
+        this.happiness += 10;
+        this.energy -= 5;
+    }
+    // evolve pokemon
     public void evolve() {
-        if (happiness >= 30) {
+        if (this.happiness >= 30) {
             evolutionLevel = 2;
-        }            System.out.print("Riolu has evolved into Lucario!");
+            System.out.println("Riolu has evolved into Lucario!");
+        }
+        else if (this.happiness >= 80) {
+            evolutionLevel = 3;
+            System.out.println("Riolu has mega evolved!");
         }
         else {
             System.out.print("Riolu is not happy enough to evolve.");
         }
     }
+    // feed pokemon candy
+    public void feedCandy() {
+        System.out.println("Your pokemon is eating candy!");
+        this.happiness += 20;
+        this.hunger -= 10;
+    }
 
+    //fight
+    public void fightTrainer() {
+        System.out.println("Your pokemon is fighting a trainer!");
+        int randNum = (int)(Math.random() * 3) + 1;
+        if (randNum == 1) {
+            System.out.print("Your pokemon won the fight!");
+            this.happiness += 40;
+            this.energy -= 20;
+        }
+        if (randNum == 2) {
+            System.out.print("Your pokemon lost the fight!");
+            this.health -= 40;
+            this.energy -= 30;
+        }
+        else {
+            System.out.print("The fight was a draw!");
+            this.energy -= 20;
+        }
+    }
+
+    //feed pokemon
+    public void feed() {
+        this.hunger += 10;
+        if (this.health + 5 <= 100) {
+            this.health += 5;
+        }
+        else {
+            this.health += 100 - this.health;
+        }
+    }
+    //
+    public void heal(){
+        System.out.println("Time to heal your Pokemon using... a potion!!");
+        System.out.println("--A Berry Juice was used.--");
+        if(this.health <= 80){
+            this.health += 20;
+        }else {
+            this.health += 100 - this.health;
+        }
+    }
+    
         // Getter and Setter for type
         public String getType() {
             return type;
@@ -81,8 +144,4 @@ public class riolu {
         public void setHunger(int hunger) {
             this.hunger = hunger;
         }
-
-    private String getHealth() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
     }
