@@ -1,40 +1,44 @@
 import java.util.Scanner;
 
 interface mainInterface {
-    public int randomEvent();
+    public void randomEvent();
     public void displayStatus();
     public void evolve();
     public void fight();
     public void feedPokemon();
     public void feedCandy();
     public void healPokemon();
-    public void faint();
     public void giveBath();
 }
-
-class riolu implements mainInterface {
-    
-}
-
-class shinx implements mainInterface {
-    @Override
-    
-}
-
-class litwick implements mainInterface {
-    @Override
-    
-}
-
-class cleffa implements mainInterface {
-    @Override
-    
-}
-
 
 
 public class main {
     public static void main(String[] args) {
+        int answer = 1;
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please choose from the following options: ");
+        System.out.println("Cleffa, Litwick, Riolu, Shinx");
+        String userPokemon = input.nextLine();
+        
+        while (answer == 1) {
+            if (userPokemon.equals("Cleffa")) {
+                answer = 0;
+            }
+            else if (userPokemon.equals("Litwick")) {
+                answer = 0;
+            }
+            else if (userPokemon.equals("Riolu")) {
+                answer = 0;
+            }
+            else if (userPokemon.equals("Shinx")) {
+                answer = 0;
+            }
+            else {
+                System.out.println("Not a valid option.");
+            }
+        }
+        
         menu();
 
 
@@ -80,4 +84,5 @@ public class main {
 
             System.out.println("");
         }
+    }
 }

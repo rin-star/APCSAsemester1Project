@@ -1,4 +1,4 @@
-public class cleffa {
+public class cleffa implements mainInterface{
     
     private String type;
     private int evolutionLevel;
@@ -32,8 +32,13 @@ public class cleffa {
     public void randomEvent() {
         int occurence = (int)(Math.random() * 3) + 1;
         if (occurence == 1) {
-            int randomChoice = (int)(Math.random() * 2) + 1;
+            int randomChoice = (int)(Math.random() * 9) + 1;
             if (randomChoice == 1) {
+                System.out.println("You've been blessed by Victini, your Pokemon gained 100 happiness!");
+                this.happiness += 100;
+            }
+
+            else {
                 System.out.println("You found a rare candy!");
                 candy.addCandy();
             }

@@ -1,4 +1,6 @@
-public class shinx{
+public abstract class shinx implements mainInterface{
+    //abstract means that any class that implements the interface MUST write these methods
+    //there was an error before hand bec we didn't implement EVERY method -> maybe faint method??
 
     private String type;
     private int evolutionLevel;

@@ -1,4 +1,4 @@
-public class litwick{
+public class litwick implements mainInterface{
 
     private String type;
     private int evolutionLevel;

@@ -1,6 +1,6 @@
-public class riolu {
+public class riolu  implements mainInterface{
 
-    private final String type;
+    private String type;
     private int evolutionLevel;
     private int happiness;
     private int energy;
@@ -32,6 +32,20 @@ public class riolu {
         System.out.println("Your Pokemon is playing!");
         this.happiness += 10;
         this.energy -= 5;
+    }
+        public void giveBath() {
+        if (!"Fire".equals(this.type)) {
+            System.out.println("Your Pokemon is taking damage from the bath.");
+            System.out.println("Your Pokemon is a fire type, don't bathe it!");
+            this.health -= 5;
+            this.happiness -= 10;
+        }
+        
+        else {
+            System.out.println("Your Pokemon is enjoying the bath!");
+            this.happiness += 10;
+        }
+        
     }
     // evolve pokemon
     public void evolve() {
