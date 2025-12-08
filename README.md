@@ -16,7 +16,7 @@ The workspace contains the following folders:
 If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
 ## Classes Overview
-*
+* https://app.diagrams.net/#G1gy0YiDVKdafeDE_rlogXZRdrydQLqp-s#%7B%22pageId%22%3A%22vDMx1HTSXYE5gUwh57Hk%22%7D
 * Please check this Flowchart for more detailed information
 
 ### main.java
