@@ -1,4 +1,4 @@
-public abstract class shinx implements mainInterface{
+public class shinx extends main implements mainInterface{
     //abstract means that any class that implements the interface MUST write these methods
     //there was an error before hand bec we didn't implement EVERY method -> maybe faint method??
 
@@ -31,6 +31,22 @@ public abstract class shinx implements mainInterface{
         }
 
     // Methods
+    public void randomEvent() {
+        int occurence = (int)(Math.random() * 3) + 1;
+        if (occurence == 1) {
+            int randomChoice = (int)(Math.random() * 9) + 1;
+            if (randomChoice == 1) {
+                System.out.println("You've been blessed by Victini, your Pokemon gained 100 happiness!");
+                this.happiness += 100;
+            }
+
+            else {
+                System.out.println("You found a rare candy!");
+                candy.addCandy();
+            }
+        }
+    }
+    
     public void play() {
         System.out.println("Your Pokemon is playing!");
         this.happiness += 10;
@@ -111,60 +127,7 @@ public abstract class shinx implements mainInterface{
             this.energy -= 20;
         }
     }
-
-
-
-        // Getter and Setter for type
-        public String getType() {
-            return type;
-        }
-    
-        public void setType(String type) {
-            this.type = type;
-        }
-    
-        // Getter and Setter for evolutionLevel
-        public int getEvolutionLevel() {
-            return evolutionLevel;
-        }
-    
-        public void setEvolutionLevel(int evolutionLevel) {
-            this.evolutionLevel = evolutionLevel;
-        }
-    
-        // Getter and Setter for happiness
-        public int getHappiness() {
-            return happiness;
-        }
-    
-        public void setHappiness(int happiness) {
-            this.happiness = happiness;
-        }
-    
-        // Getter and Setter for energy
-        public int getEnergy() {
-            return energy;
-        }
-    
-        public void setEnergy(int energy) {
-            this.energy = energy;
-        }
-    
-        // Getter and Setter for health
-        public int getHealth() {
-            return health;
-        }
-    
-        public void setHealth(int health) {
-            this.health = health;
-        }
-    
-        // Getter and Setter for hunger
-        public int getHunger() {
-            return hunger;
-        }
-    
-        public void setHunger(int hunger) {
-            this.hunger = hunger;
-        }
+    public int getHealth() {
+        return health;
+    }
     }

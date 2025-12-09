@@ -1,13 +1,12 @@
-
-## AP CSA Semester 1 Project
-
-Welcome to the Pokémon Virtual Pet Simulation Project
+# Pokémon Virtual Pet Simulation Project
 
 This program models interactive Pokémon companions using Java classes. The project demonstrates core object-oriented programming principles such as encapsulation, composition, constructors, method overloading, and dynamic behaviors.
 
-The Pokémon Virtual Pet Simulation allows users to adopt Pokémon, feed them, train them, evolve them, and monitor their happiness, energy, and unique type-based responses. Each Pokémon species behaves differently depending on its typing, environment, and user interactions. The project highlights key Object-Oriented Programming (OOP) concepts while giving users a fun and engaging digital Pokémon care experience.
+The Pokémon Virtual Pet Simulation allows users to adopt Pokémon, feed them, train them, evolve them, and monitor their happiness, energy, and unique type-based responses. Each Pokémon species behaves differently depending on its typing, environment, and user interactions.
 
-The workspace contains the following folders:
+---
+
+## Project Structure
 
 * `src`: contains the Java source files (`shinx.java`, `cleffa.java`, `riolu.java`, `litwick.java`, `main.java`)
 * `lib`: contains any dependencies if added
@@ -15,40 +14,76 @@ The workspace contains the following folders:
 
 If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
+---
+
 ## Classes Overview
-* https://drive.google.com/file/d/1gy0YiDVKdafeDE_rlogXZRdrydQLqp-s/view?usp=sharing
-* Please check this Flowchart for more detailed information
+
+* [Flowchart](https://drive.google.com/file/d/1gy0YiDVKdafeDE_rlogXZRdrydQLqp-s/view?usp=sharing)  
+  Please check this flowchart for more detailed information.
 
 ### main.java
 
-Represents the main class for the bird object.
-Includes:
+Represents the main class for the Pokémon simulation. This class serves as the entry point for the program and manages the overall flow of the simulation.
 
-* 
+Includes:
+- User interface for adopting, feeding, training, and evolving Pokémon.
+- Tracks and updates Pokémon stats (happiness, energy, etc.).
+- Handles user input and displays menus.
+
+---
 
 ### shinx.java
 
+Represents the Electric-type Pokémon, Shinx. This class models Shinx's unique behaviors and stats.
 
+Includes:
+- Methods for feeding, training, and evolving Shinx.
+- Tracks happiness and energy levels.
+- Implements type-specific responses to user actions.
+
+---
 
 ### cleffa.java
 
+Represents the Fairy-type Pokémon, Cleffa. This class models Cleffa's unique behaviors and stats.
+
+Includes:
+- Methods for feeding, training, and evolving Cleffa.
+- Tracks happiness and energy levels.
+- Implements type-specific responses to user actions.
+
+---
+
 ### riolu.java
+
+Represents the Fighting-type Pokémon, Riolu. This class models Riolu's unique behaviors and stats.
+
+Includes:
+- Methods for feeding, training, and evolving Riolu.
+- Tracks happiness and energy levels.
+- Implements type-specific responses to user actions.
+
+---
 
 ### litwick.java
 
+Represents the Ghost/Fire-type Pokémon, Litwick. This class models Litwick's unique behaviors and stats.
 
+Includes:
+- Methods for feeding, training, and evolving Litwick.
+- Tracks happiness and energy levels.
+- Implements type-specific responses to user actions.
 
+---
 
 ## How to Run
 
 1. Open the project folder in Visual Studio Code.
 2. Compile the Java files:
-
    ```bash
    javac -d bin src/*.java
    ```
 3. Run the tester class:
-
    ```bash
    java -cp bin BirdTester
    ```
@@ -68,3 +103,10 @@ Includes:
 ## Dependency Management
 
 The `JAVA PROJECTS` view in Visual Studio Code allows you to manage dependencies. More details can be found in the [VS Code Java Dependency Guide](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+
+## Contributors
+
+- Jacob Le
+- Ashlynn Kirchoff
+- Natalee Ngo
+- Rin Ryu

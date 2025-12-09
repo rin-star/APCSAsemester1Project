@@ -1,4 +1,4 @@
-public class riolu  implements mainInterface{
+public class riolu extends main implements mainInterface{
 
     private String type;
     private int evolutionLevel;
@@ -16,6 +16,23 @@ public class riolu  implements mainInterface{
         this.health = 100;
         this.hunger = 70;
     }
+
+    public void randomEvent() {
+        int occurence = (int)(Math.random() * 3) + 1;
+        if (occurence == 1) {
+            int randomChoice = (int)(Math.random() * 9) + 1;
+            if (randomChoice == 1) {
+                System.out.println("You've been blessed by Victini, your Pokemon gained 100 happiness!");
+                this.happiness += 100;
+            }
+
+            else {
+                System.out.println("You found a rare candy!");
+                candy.addCandy();
+            }
+        }
+    }
+
     //display status
     public void displayStatus() 
         {
@@ -158,4 +175,5 @@ public class riolu  implements mainInterface{
         public void setHunger(int hunger) {
             this.hunger = hunger;
         }
+
     }

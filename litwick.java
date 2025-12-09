@@ -1,4 +1,5 @@
-public class litwick implements mainInterface{
+public class litwick extends main implements mainInterface{
+// Declares litwick as a subclass of Pokemon that must implement methods from mainInterface
 
     private String type;
     private int evolutionLevel;
@@ -19,6 +20,7 @@ public class litwick implements mainInterface{
         this.hunger = 70;
     }
     //display status
+    @Override
     public void displayStatus() 
         {
         System.out.println("Pokemon Type: " + this.type);
@@ -62,6 +64,19 @@ public class litwick implements mainInterface{
         }
         
     }
+        public void evolve() {
+        if (this.happiness >= 30) {
+            evolutionLevel = 2;
+            System.out.println("Litwick has evolved into Lampent!");
+        }
+        else if (this.happiness >= 80) {
+            evolutionLevel = 3;
+            System.out.println("Lampent has evolved in Chandedelure!");
+        }
+        else {
+            System.out.print("Litwick is not happy enough to evolve.");
+        }
+        }
 
     public void heal(){
         System.out.println("Time to heal your Pokemon using... a potion!!");
@@ -73,8 +88,24 @@ public class litwick implements mainInterface{
         }
     }
     
+    public void randomEvent() {
+        int occurence = (int)(Math.random() * 3) + 1;
+        if (occurence == 1) {
+            int randomChoice = (int)(Math.random() * 9) + 1;
+            if (randomChoice == 1) {
+                System.out.println("You've been blessed by Victini, your Pokemon gained 100 happiness!");
+                this.happiness += 100;
+            }
+
+            else {
+                System.out.println("You found a rare candy!");
+                candy.addCandy();
+            }
+        }
+    }
+
     // method to fight a trainer
-        public void fightTrainer() {
+    public void fightTrainer() {
         System.out.println("Your pokemon is fighting a trainer!");
         int randNum = (int)(Math.random() * 3) + 1;
         if (randNum == 1) {

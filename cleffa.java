@@ -1,4 +1,4 @@
-public class cleffa implements mainInterface{
+public class cleffa extends main implements mainInterface{
     
     private String type;
     private int evolutionLevel;
@@ -18,6 +18,7 @@ public class cleffa implements mainInterface{
 
     }
     //display status
+    @Override
     public void displayStatus() 
         {
         System.out.println("Pokemon Type: " + this.type);
@@ -29,6 +30,7 @@ public class cleffa implements mainInterface{
         }
 
     // Methods
+    @Override
     public void randomEvent() {
         int occurence = (int)(Math.random() * 3) + 1;
         if (occurence == 1) {
@@ -44,13 +46,14 @@ public class cleffa implements mainInterface{
             }
         }
     }
-
+    
     public void play() {
         System.out.println("Your Pokemon is playing!");
         this.happiness += 10;
         this.energy -= 5;
     }
 
+    
     public void feed() {
         this.hunger += 10;
         if (this.health + 5 <= 100) {
@@ -62,7 +65,9 @@ public class cleffa implements mainInterface{
             this.health += 100 - this.health;
         }
     }
-        public void fightTrainer() {
+
+    
+    public void fightTrainer() {
         System.out.println("Your pokemon is fighting a trainer!");
         int randNum = (int)(Math.random() * 3) + 1;
         if (randNum == 1) {
@@ -104,7 +109,22 @@ public class cleffa implements mainInterface{
         }else {
             this.health += 100 - this.health;
         }
-    }   
+    }  
+
+    @Override
+        public void evolve() {
+        if (this.happiness >= 30) {
+            evolutionLevel = 2;
+            System.out.println("Cleffa has evolved into Clefairy!");
+        }
+        else if (this.happiness >= 80) {
+            evolutionLevel = 3;
+            System.out.println("Clefairy has evolved in Clefable!");
+        }
+        else {
+            System.out.print("Cleffa is not happy enough to evolve.");
+        }
+        }
     
     // Getter and Setter for type
     public String getType() {
@@ -116,12 +136,12 @@ public class cleffa implements mainInterface{
     }
 
     // Getter and Setter for evolution
-    public int getEvolution() {
+    public int getEvolutionLevel() {
         return evolutionLevel;
     }
 
-    public void setEvolution(int evolution) {
-        this.evolutionLevel = evolution;
+    public void setEvolutionLevelint(int evolutionLevel) {
+        this.evolutionLevel = evolutionLevel;
     }
 
     // Getter and Setter for happiness
