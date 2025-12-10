@@ -34,30 +34,8 @@ public class main {
         System.out.println("Please choose from the following options: ");
         System.out.println("Cleffa, Litwick, Riolu, Shinx");
         String userPokemon = input.nextLine();
-        mainInterface pokemon = null;
-        
-        while (answer == 1) {
-            if (userPokemon.equals("Cleffa")) {
-                answer = 0;
-                pokemon = new cleffa();
-            
-            }
-            else if (userPokemon.equals("Litwick")) {
-                answer = 0;
-                pokemon = new litwick();
-            }
-            else if (userPokemon.equals("Riolu")) {
-                answer = 0;
-                pokemon = new riolu();
-            }
-            else if (userPokemon.equals("Shinx")) {
-                answer = 0;
-                pokemon = new shinx();
-            }
-            else {
-                System.out.println("Not a valid option.");
-            }
-        }
+
+        main pokemon = createPokemon(userPokemon);
 
         while (continuePlaying) {
             if (pokemon.getHealth() > 0) {
@@ -65,8 +43,15 @@ public class main {
                 break;
             }
             menu();
+
+            System.out.println("");
+        }
         
-            int choice = input.nextInt();
+    }
+
+    public static void userPick(mainInterface pokemon) {
+        Scanner input = new Scanner(System.in);
+        int choice = input.nextInt();
 
             if (choice == 1) {
                 pokemon.displayStatus();
@@ -83,21 +68,17 @@ public class main {
             }else if (choice == 7) {
                 pokemon.giveBath();
             }else if (choice == 8) {
-                continuePlaying = false;
+                System.out.print("ok....");
             }else {
                 System.out.println("Invalid choice! Try again.");
             }
 
-            System.out.println("");
-        }
-        
     }
 
     public static void menu() {
         Scanner input = new Scanner(System.in);
         int choice = 0;
 
-        while (choice != 8) {
             System.out.println("Choose an action:");
             System.out.println("1. Display Status");
             System.out.println("2. Evolve");
@@ -109,5 +90,28 @@ public class main {
             System.out.println("8. Exit");
 
     }
+
+    public static main createPokemon(String pokemonType){
+        main pokemon;
+        if (pokemonType.equalsIgnoreCase("Shinx")){
+            pokemon = new shinx();
+            return pokemon;
+        }
+        else if (pokemonType.equalsIgnoreCase("Litwick")){
+            pokemon = new litwick();
+            return pokemon;
+        }
+        else if (pokemonType.equalsIgnoreCase("Cleffa")){
+            pokemon = new cleffa();
+            return pokemon;
+        }
+        else if (pokemonType.equalsIgnoreCase("Riolu")){
+            pokemon = new riolu();
+            return pokemon;
+        }
+        else {
+            return null;
     }
     }
+
+}
