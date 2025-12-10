@@ -65,7 +65,7 @@ public class main {
                 break;
             }
             menu();
-        }
+        
             int choice = input.nextInt();
 
             if (choice == 1) {
@@ -89,6 +89,7 @@ public class main {
             }
 
             System.out.println("");
+        }
         
     }
 
