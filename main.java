@@ -22,12 +22,12 @@ interface mainInterface {
     public void setType();
     public int getHunger();
     public void setHunger();
+    public void userPick();
 }
 
 
 public class main {
     public static void main(String[] args) {
-        int answer = 1;
         boolean continuePlaying = true;
         
         Scanner input = new Scanner(System.in);
@@ -43,6 +43,8 @@ public class main {
                 break;
             }
             menu();
+
+            userPick(pokemon);
 
             System.out.println("");
         }
