@@ -1,146 +1,116 @@
-/**
- * The litwick class represents a Fire-type Pokemon with attributes such as type,
- * evolution level, happiness, energy, health, and hunger, and provides
- * methods to interact with it.
- *
- * This class extends main and implements mainInterface.
- *
- * @author Rin Ryu
- * @author Jacob Le
- * @author Ashlynn K
- * @author Natalee Ngo
- */
-public class litwick extends main implements mainInterface{
-// Declares litwick as a subclass of Pokemon that must implement methods from mainInterface
-
+public class litwick implements Pokemon {
+    //instance variables
     private String type;
-    private int evolutionLevel;
+    private String pokemonEvo;
     private int happiness;
     private int energy;
     private int health;
     private int hunger;
-
-    /**
-     * Constructs a new litwick with default stats for type, evolution,
-     * happiness, energy, health, and hunger.
-     */
-    // constructor for litwick object
-    public litwick()
-    {
+    
+    //constructor
+    public litwick() {
+        this.pokemonEvo = "Litwick";
         this.type = "Fire";
-        this.evolutionLevel = 1;
-        this.happiness = 50;
+        this.happiness = 0;
         this.energy = 50;
         this.health = 100;
-        this.hunger = 70;
+        this.hunger = 20;
     }
-
-    /**
-     * Displays the current status of this Pokemon, including type,
-     * evolution level, happiness, energy, health, and hunger.
-     */
-    //display status
-    @Override
-    public void displayStatus() 
-        {
-        System.out.println("Pokemon Type: " + this.type);
-        System.out.println("Evolution Level: " + this.evolutionLevel);
-        System.out.println("Happiness: " + this.happiness);
-        System.out.println("Energy: " + this.energy);
+    
+    //methods
+    public void returnStats(){
+        System.out.println("Evolution:" + this.pokemonEvo);
         System.out.println("Health: " + this.health);
-        System.out.println("Hunger: " + this.hunger);
-        }
-
-    /**
-     * Lets this Pokemon play, increasing happiness and decreasing energy.
-     */
-    // Methods
-    public void play() {
-        System.out.println("Your Pokemon is playing!");
-        this.happiness += 10;
-        this.energy -= 5;
+        System.out.println("Happiness:" + this.happiness);
+        System.out.println("Energy:" + this.energy);
+        System.out.print("Hunger: " + this.hunger);
     }
-
-    /**
-     * Feeds this Pokemon, increasing hunger and possibly restoring some health.
-     */
-    public void feed() {
-        this.hunger += 10;
-        if (this.health + 5 <= 100) {
-            this.health += 5;
-            System.out.println("Your Pokemon has been fed and feels healthier!");
+    
+    public void feed(){
+        System.out.println("You fed your Pokemon!");
+        if (this.health + 10 > 100){
+            if (this.hunger + 5 > 20){
+                this.hunger += 20 - this.hunger;
+                this.health += 100 - this.health;
+            }
+            else {
+                this.hunger += 5;
+                this.health += 100 - this.health;
+            }
         }
         else {
-            System.out.println("Your Pokemon has been fed!");
-            this.health += 100 - this.health;
+            this.hunger += 5;
+            this.health += 10;
         }
     }
-
-    /**
-     * Gives this Pokemon a bath; non-fire types take damage and lose happiness.
-     */
-    public void giveBath() {
-        if (!"Fire".equals(this.type)) {
-            System.out.println("Your Pokemon is taking damage from the bath.");
-            System.out.println("Your Pokemon is a fire type, don't bathe it!");
-            this.health -= 5;
+    
+    public void play() {
+        if (energy - 5 >= 0){
+            System.out.println("Your Pokemon is playing!");
+            this.happiness += 10;
+            this.energy -= 5;
+        }
+        else if (energy - 5 < 0) {
+            System.out.println("Your Pokemon is too fatigued. It took damage!");
+            this.energy -= 5;
+            this.health -= 10;
             this.happiness -= 10;
         }
-        
-        else {
-            System.out.println("Your Pokemon is enjoying the bath!");
-            this.happiness += 10;
+    }
+    
+    public void rest() {
+        System.out.println("Your Pokemon is taking a nap!");
+        this.energy += 20;
+    }
+    
+    public void feedCandy(String userInput){
+        if (userInput.equalsIgnoreCase("Big")){
+            System.out.println("You fed your Pokemon a big candy!");
+            this.happiness += 75;
+            Inventory.useBigCandy();
         }
         
+        else if (userInput.equalsIgnoreCase("Small")){
+            System.out.println("You fed your Pokemon a small candy!");
+            this.happiness += 25;
+            Inventory.useSmallCandy();
+        }
+    }
+    
+    public void giveBath(){
+        if (type.equals("Fire")){
+            System.out.println("Your Pokemon is a fire type. It took damage!");
+            this.health -= 20;
+            this.happiness -= 20;
+        }
+        
+        else {
+            System.out.println("You gave your Pokemon a bath!");
+            this.happiness += 20;
+            this.energy += 10;
+        }
+    }
+    public int getHealth() {
+        return this.health;
     }
 
     /**
      * Attempts to evolve this Pokemon depending on its happiness level.
      */
+    // evolve pokemon
     public void evolve() {
-        if (this.happiness >= 30) {
-            evolutionLevel = 2;
-            System.out.println("Litwick has evolved into Lampent!");
+        if (this.happiness >= 200) {
+            String currentPokemon = this.pokemonEvo;
+            pokemonEvo = "Lampent";
+            System.out.println(currentPokemon + " has evolved into " + pokemonEvo + "!");
         }
-        else if (this.happiness >= 80) {
-            evolutionLevel = 3;
-            System.out.println("Lampent has evolved in Chandelure!");
+        else if (this.happiness >= 500) {
+            String currentPokemon = this.pokemonEvo;
+            pokemonEvo = "Chandelure";
+            System.out.println(currentPokemon + " has evolved into " + pokemonEvo + "!");
         }
         else {
-            System.out.print("Litwick is not happy enough to evolve.");
-        }
-    }
-
-    /**
-     * Heals this Pokemon using a Berry Juice, restoring up to 20 health
-     * without exceeding 100.
-     */
-    public void heal(){
-        System.out.println("Time to heal your Pokemon using... a potion!!");
-        System.out.println("--A Berry Juice was used.--");
-        if(this.health <= 80){
-            this.health += 20;
-        }else {
-            this.health += 100 - this.health;
-        }
-    }
-    
-    /**
-     * Triggers a random event that may increase happiness or add a rare candy.
-     */
-    public void randomEvent() {
-        int occurence = (int)(Math.random() * 3) + 1;
-        if (occurence == 1) {
-            int randomChoice = (int)(Math.random() * 9) + 1;
-            if (randomChoice == 1) {
-                System.out.println("You've been blessed by Victini, your Pokemon gained 100 happiness!");
-                this.happiness += 100;
-            }
-
-            else {
-                System.out.println("You found a rare candy!");
-                candy.addCandy();
-            }
+            System.out.print(pokemonEvo + " is not happy enough to evolve.");
         }
     }
 
@@ -161,6 +131,7 @@ public class litwick extends main implements mainInterface{
             System.out.print("Your pokemon lost the fight!");
             this.health -= 40;
             this.energy -= 30;
+            this.happiness -= 20;
         }
         else {
             System.out.print("The fight was a draw!");
@@ -169,116 +140,18 @@ public class litwick extends main implements mainInterface{
     }
 
     /**
-     * Returns this Pokemon's type.
-     * @return the type
+     * Heals this Pokemon using a Berry Juice, restoring up to 20 health
+     * without exceeding 100.
      */
-    // Getter and Setter for type
-    public String getType() {
-        return type;
+    public void heal(){
+        System.out.println("Time to heal your Pokemon using... a potion!!");
+        System.out.println("--A Hyper Potion was used.--");
+        if(this.health <= 80){
+            this.health += 20;
+        }else {
+            this.health += 100 - this.health;
+        }
     }
 
-    /**
-     * Sets this Pokemon's type.
-     * @param type the type to set
-     */
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    /**
-     * Returns this Pokemon's evolution level.
-     * @return the evolution level
-     */
-    // Getter and Setter for evolutionLevel
-    public int getEvolutionLevel() {
-        return evolutionLevel;
-    }
-
-    /**
-     * Sets this Pokemon's evolution level.
-     * @param evolutionLevel the evolution level to set
-     */
-    public void setEvolutionLevel(int evolutionLevel) {
-        this.evolutionLevel = evolutionLevel;
-    }
-
-    /**
-     * Returns this Pokemon's happiness.
-     * @return the happiness
-     */
-    // Getter and Setter for happiness
-    public int getHappiness() {
-        return happiness;
-    }
-
-    /**
-     * Sets this Pokemon's happiness.
-     * @param happiness the happiness to set
-     */
-    public void setHappiness(int happiness) {
-        this.happiness = happiness;
-    }
-
-    /**
-     * Returns this Pokemon's energy.
-     * @return the energy
-     */
-    // Getter and Setter for energy
-    public int getEnergy() {
-        return energy;
-    }
-
-    /**
-     * Sets this Pokemon's energy.
-     * @param energy the energy to set
-     */
-    public void setEnergy(int energy) {
-        this.energy = energy;
-    }
-
-    /**
-     * Returns this Pokemon's health.
-     * @return the health
-     */
-    // Getter and Setter for health
-    public int getHealth() {
-        return health;
-    }
-
-    /**
-     * Sets this Pokemon's health.
-     * @param health the health to set
-     */
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    /**
-     * Returns this Pokemon's hunger.
-     * @return the hunger
-     */
-    // Getter and Setter for hunger
-    public int getHunger() {
-        return hunger;
-    }
-
-    /**
-     * Sets this Pokemon's hunger.
-     * @param hunger the hunger to set
-     */
-    public void setHunger(int hunger) {
-        this.hunger = hunger;
-    }
-
-    @Override
-    public void feedCandy() {
-        System.out.println("Your Litwick is eating candy!");
-        this.happiness += 20;
-        this.hunger -= 10;
-    }
-
-    @Override
-    public void userPick() {
-        main.userPick(this);  // forward to main’s menu system
-    }
+    
 }
