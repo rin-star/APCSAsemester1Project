@@ -9,6 +9,7 @@
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App"
+
         }
     ]
 }

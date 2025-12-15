@@ -1,9 +1,19 @@
 import java.util.Scanner;
+/**
+ * The main class for the Pokemon game.
+ * This class allows the user to create a Pokemon, interact with it, and play the game.
+ */
 public class main {
 
     public String pokemonName;
-    
+    /**
+     * The main method serves as the entry point for the program.
+     * It initializes the game, allows the user to create a Pokemon, and provides a menu for interaction.
+     *
+     * @param args Command-line arguments (not used in this program).
+     */
     public static void main(String[] args) {
+        boolean continuePlaying = true;
         Scanner input = new Scanner(System.in);
         System.out.print("Which pokemon do you want?: ");
         String userInput = input.nextLine();
@@ -11,15 +21,29 @@ public class main {
         Pokemon currentPokemon = createPokemon(userInput);
         System.out.println("You created a pokemon!");
         
-        while (currentPokemon.getHealth() >= 0) {
+        while (currentPokemon.getHealth() >= 0 && continuePlaying) {
             menu();
             int userNum = input.nextInt();
+            if (userNum == 0) {
+                continuePlaying = false;
+            }
             selection(userNum, currentPokemon);
         }
-        
+        if (currentPokemon.getHealth() <= 0){
+            System.out.println("Your pokemon has fainted. Game over.");
+        }
+        else {
+            System.out.println("You abandoned your pokemon.");
+            System.out.println("Thanks for playing!");
+        }
     }
     
-    //create pokemon
+    /**
+     * Creates a Pokemon object based on the user's input.
+     *
+     * @param userInput The name of the Pokemon the user wants to create.
+     * @return A Pokemon object corresponding to the user's input, or null if the input is invalid.
+     */
     public static Pokemon createPokemon(String userInput){
         Pokemon pokemon = null;
         if (userInput.equalsIgnoreCase("Cleffa")){
@@ -43,7 +67,12 @@ public class main {
         }
         return pokemon;
     }
-    
+    /**
+     * Creates a Pokemon object based on the user's input.
+     *
+     * @param userInput The name of the Pokemon the user wants to create.
+     * @return A Pokemon object corresponding to the user's input, or null if the input is invalid.
+     */
     public static void selection(int userNum, Pokemon pokemon) {
         if (userNum == 1) {
             pokemon.returnStats();
@@ -75,11 +104,18 @@ public class main {
         else if (userNum == 9) {
             pokemon.rest();
         }
+        else if (userNum == 0) {
+            System.out.println("Thanks for playing!");
+            System.exit(0);
+        }
         else {
             System.out.println("That's not a valid input.");
         }
     }
-    //menu
+    /**
+     * Displays the menu of options for the user to interact with their Pokemon.
+     * The user can choose from various actions such as showing stats, feeding, playing, and more.
+     */
     public static void menu() {
         System.out.println("Please make a selection from the options below.");
         System.out.println("1. Show stats");
@@ -91,6 +127,7 @@ public class main {
         System.out.println("7. Fight Trainer");
         System.out.println("8. Feed Candy");
         System.out.println("9. Rest");
+        System.out.println("0. Exit");
     }
 
     
