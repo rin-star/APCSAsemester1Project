@@ -2,6 +2,11 @@ import java.util.Scanner;
 /**
  * The main class for the Pokemon game.
  * This class allows the user to create a Pokemon, interact with it, and play the game.
+ * 
+ * Author: Natalee Ngo
+ * Collaborators: Ashlynn Kirchoff, Jacob Le, Rin Ryu
+ * Date: December 15, 2025
+ * 
  */
 public class main {
 
@@ -97,6 +102,7 @@ public class main {
         }
         else if (userNum == 8) {
             Scanner input = new Scanner(System.in);
+            input.nextLine();
             System.out.print("What candy do you want to feed your pokemon?(big, small): ");
             String candyInput = input.nextLine();
             pokemon.feedCandy(candyInput);
