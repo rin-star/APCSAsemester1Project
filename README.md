@@ -88,6 +88,11 @@ Includes:
    java -cp bin BirdTester
    ```
 
+---
+## Bugs & Future Improvements
+
+Some actions, like feeding candy when none is available, may cause unexpected behavior. Future updates could include inventory checks, a Graphical User Interface, save/load features, and a more advanced battle system.
+
 ## Example Output
 
 ```
@@ -209,7 +214,7 @@ The `JAVA PROJECTS` view in Visual Studio Code allows you to manage dependencies
 
 ## Contributors
 
-- Jacob Le
-- Ashlynn Kirchoff
-- Natalee Ngo
-- Rin Ryu
+- Jacob Le (Technical Writer)
+- Ashlynn Kirchoff (Project Manager)
+- Natalee Ngo (Quality Assurance Tester)
+- Rin Ryu (Programming Lead)
