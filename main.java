@@ -15,7 +15,7 @@ public class main {
     public static void main(String[] args) {
         boolean continuePlaying = true;
         Scanner input = new Scanner(System.in);
-        System.out.print("Which pokemon do you want?: ");
+        System.out.print("Which pokemon do you want? (shinx, cleffa, litwick, riolu): ");
         String userInput = input.nextLine();
         
         Pokemon currentPokemon = createPokemon(userInput);
