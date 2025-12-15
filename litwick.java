@@ -1,3 +1,12 @@
+/**
+ * Represents a Litwick Pokemon with stats such as type, evolution stage,
+ * happiness, energy, health, and hunger, and provides actions to interact
+ * with it in the game.
+ *
+ * @author Jacob Le
+ * @collaborators Perplexity.ai
+ * @version 12/15/2025
+ */
 public class litwick implements Pokemon {
     //instance variables
     private String type;
@@ -7,6 +16,10 @@ public class litwick implements Pokemon {
     private int health;
     private int hunger;
     
+    /**
+     * Creates a new Litwick with default starting stats for type, evolution,
+     * happiness, energy, health, and hunger.
+     */
     //constructor
     public litwick() {
         this.pokemonEvo = "Litwick";
@@ -17,6 +30,10 @@ public class litwick implements Pokemon {
         this.hunger = 20;
     }
     
+    /**
+     * Prints this Pokemon's current evolution, health, happiness,
+     * energy, and hunger values to the console.
+     */
     //methods
     public void returnStats(){
         System.out.println("Evolution:" + this.pokemonEvo);
@@ -26,6 +43,10 @@ public class litwick implements Pokemon {
         System.out.print("Hunger: " + this.hunger);
     }
     
+    /**
+     * Feeds this Pokemon, increasing hunger and health without
+     * exceeding their maximum values.
+     */
     public void feed(){
         System.out.println("You fed your Pokemon!");
         if (this.health + 10 > 100){
@@ -44,6 +65,10 @@ public class litwick implements Pokemon {
         }
     }
     
+    /**
+     * Plays with this Pokemon, changing happiness, energy, and possibly
+     * health depending on whether it has enough energy.
+     */
     public void play() {
         if (energy - 5 >= 0){
             System.out.println("Your Pokemon is playing!");
@@ -58,11 +83,20 @@ public class litwick implements Pokemon {
         }
     }
     
+    /**
+     * Rests this Pokemon, restoring its energy.
+     */
     public void rest() {
         System.out.println("Your Pokemon is taking a nap!");
         this.energy += 20;
     }
     
+    /**
+     * Feeds this Pokemon a candy from the inventory, adjusting its happiness
+     * based on whether the candy is big or small.
+     *
+     * @param userInput the candy size, expected to be "Big" or "Small"
+     */
     public void feedCandy(String userInput){
         if (userInput.equalsIgnoreCase("Big")){
             System.out.println("You fed your Pokemon a big candy!");
@@ -77,6 +111,10 @@ public class litwick implements Pokemon {
         }
     }
     
+    /**
+     * Gives this Pokemon a bath, changing happiness, health, and energy.
+     * Fire-type Pokemon are damaged by baths.
+     */
     public void giveBath(){
         if (type.equals("Fire")){
             System.out.println("Your Pokemon is a fire type. It took damage!");
@@ -90,12 +128,20 @@ public class litwick implements Pokemon {
             this.energy += 10;
         }
     }
+
+    /**
+     * Returns this Pokemon's current health value.
+     *
+     * @return the current health
+     */
     public int getHealth() {
         return this.health;
     }
 
+
     /**
      * Attempts to evolve this Pokemon depending on its happiness level.
+     * Evolves to Lampent or Chandelure if happiness is high enough.
      */
     // evolve pokemon
     public void evolve() {
@@ -113,6 +159,7 @@ public class litwick implements Pokemon {
             System.out.print(pokemonEvo + " is not happy enough to evolve.");
         }
     }
+
 
     /**
      * Simulates a battle against a trainer, changing happiness, health,
@@ -139,8 +186,9 @@ public class litwick implements Pokemon {
         }
     }
 
+
     /**
-     * Heals this Pokemon using a Berry Juice, restoring up to 20 health
+     * Heals this Pokemon using a Hyper Potion, restoring up to 20 health
      * without exceeding 100.
      */
     public void heal(){
@@ -152,6 +200,4 @@ public class litwick implements Pokemon {
             this.health += 100 - this.health;
         }
     }
-
-    
 }
