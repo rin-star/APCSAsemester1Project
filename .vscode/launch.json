@@ -4,12 +4,17 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "main",
+            "projectName": "APCSAsemester1Project_e13b2409"
+        },
         {
             "type": "jdk",
             "request": "launch",
             "name": "Launch Java App"
-
         }
     ]
 }

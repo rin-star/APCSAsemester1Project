@@ -10,7 +10,6 @@ import java.util.Scanner;
  */
 public class main {
 
-    public String pokemonName;
     /**
      * The main method serves as the entry point for the program.
      * It initializes the game, allows the user to create a Pokemon, and provides a menu for interaction.
@@ -26,9 +25,10 @@ public class main {
         Pokemon currentPokemon = createPokemon(userInput);
         System.out.println("You created a pokemon!");
         
-        while (currentPokemon.getHealth() >= 0 && continuePlaying) {
+        while (currentPokemon.getHealth() > 0 && continuePlaying) {
             menu();
             int userNum = input.nextInt();
+            input.nextLine(); // Consume newline
             if (userNum == 0) {
                 continuePlaying = false;
             }
@@ -102,11 +102,18 @@ public class main {
         }
         else if (userNum == 8) {
             Scanner input = new Scanner(System.in);
-            input.nextLine();
-            System.out.print("What candy do you want to feed your pokemon?(big, small): ");
-            String candyInput = input.nextLine();
-            pokemon.feedCandy(candyInput);
+            if (Inventory.getBigCandy() == 0 && Inventory.getSmallCandy() == 0){
+                System.out.println("You have no candy to feed your pokemon.");
+            }
+            else {
+
+            
+                System.out.print("What candy do you want to feed your pokemon?(big, small): ");
+                String candyInput = input.nextLine();
+                pokemon.feedCandy(candyInput);
+            }
         }
+        
         else if (userNum == 9) {
             pokemon.rest();
         }
