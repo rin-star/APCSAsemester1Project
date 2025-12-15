@@ -27,6 +27,7 @@ public class main {
         
         while (currentPokemon.getHealth() > 0 && continuePlaying) {
             menu();
+            Inventory.randomEvent();
             int userNum = input.nextInt();
             input.nextLine(); // Consume newline
             if (userNum == 0) {
