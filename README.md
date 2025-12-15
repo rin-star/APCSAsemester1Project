@@ -93,6 +93,7 @@ Includes:
 
 Some actions, like feeding candy when none is available, may cause unexpected behavior. Future updates could include inventory checks, a Graphical User Interface, save/load features, and a more advanced battle system.
 
+---
 ## Example Output
 
 ```
