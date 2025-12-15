@@ -117,7 +117,7 @@ public class main {
      * The user can choose from various actions such as showing stats, feeding, playing, and more.
      */
     public static void menu() {
-        System.out.println("Please make a selection from the options below.");
+        System.out.println("Please make a selection from the options below. (choose a number");
         System.out.println("1. Show stats");
         System.out.println("2. Feed");
         System.out.println("3. Play");
