@@ -4,6 +4,10 @@
  * 
  * Methods include actions for feeding, playing, evolving, healing, resting,
  * giving baths, and battling trainers.
+ * 
+ * @author Ashlynn Kirchoff
+ * @collaborators VS Copilot, Natalee Ngo, Jacob Le, Rin Ryu
+ * @version 12/15/2025
  */
 public interface Pokemon {
 

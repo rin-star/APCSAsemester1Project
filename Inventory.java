@@ -1,7 +1,14 @@
 /**
  * The Inventory class keeps track of a player's Pokémon candies.
- * Players can collect small and big candies through random events,
- * and use them to power up or evolve their Pokémon.
+ * Players can collect small and big candies through random events
+ * and feed them to their Pokémon. Feeding candy increases the Pokémon's happiness,
+ * while big candies may also help evolve certain Pokémon.
+ * 
+ * This class is used in conjunction with the main game loop in main.java.
+ * 
+ * @author Rin Ryu
+ * @collaborators ChatGPT, Ashlynn Kirchoff, Jacob Le, Natalee Ngo
+ * @version 12/15/25
  */
 public class Inventory {
     /** The number of big candies in the player's inventory. */
@@ -29,7 +36,7 @@ public class Inventory {
     
     /**
      * Returns the number of small candies in the player's inventory.
-     * Small candies are used to power up Pokémon.
+     * Small candies can be fed to Pokémon to increase their happiness.
      * 
      * @return the current count of small candies
      */
@@ -39,7 +46,8 @@ public class Inventory {
     
     /**
      * Returns the number of big candies in the player's inventory.
-     * Big candies are used to evolve Pokémon.
+     * Big candies can be fed to Pokémon to increase their happiness,
+     * and may also help certain Pokémon evolve.
      * 
      * @return the current count of big candies
      */
@@ -48,18 +56,20 @@ public class Inventory {
     }
     
     /**
-     * Uses one small candy from the inventory to power up a Pokémon.
+     * Uses one small candy from the inventory to feed a Pokémon.
+     * Feeding candy increases the Pokémon's happiness.
      * Decreases the small candy count by 1.
-     * If no small candies are available, the count will go negative (consider adding a check).
+     * Note: The inventory does not check if candies are available before use.
      */
     public static void useSmallCandy() {
         smallCandy -= 1;
     }
     
     /**
-     * Uses one big candy from the inventory to evolve a Pokémon.
+     * Uses one big candy from the inventory to feed a Pokémon.
+     * Feeding big candy increases the Pokémon's happiness and may trigger evolution.
      * Decreases the big candy count by 1.
-     * If no big candies are available, the count will go negative (consider adding a check).
+     * Note: The inventory does not check if candies are available before use.
      */
     public static void useBigCandy() {
         bigCandy -= 1;
