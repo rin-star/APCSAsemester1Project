@@ -95,12 +95,10 @@ Some actions, like feeding candy when none is available, may cause unexpected be
 
 ---
 ## Example Output
-
 ```
 Which pokemon do you want? (shinx, cleffa, litwick, riolu): shinx
 You created a pokemon!
 
-Please make a selection from the options below.
 1. Show stats
 2. Feed
 3. Play
@@ -112,94 +110,11 @@ Please make a selection from the options below.
 9. Rest
 0. Exit
 1
-Evolution:Shinx
+Evolution: Shinx
 Health: 100
-Happiness:0
-Energy:50
-Hunger:20
-
-Please make a selection from the options below.
-1. Show stats
-2. Feed
-3. Play
-4. Give Bath
-5. Heal
-6. Evolve
-7. Fight Trainer
-8. Feed Candy
-9. Rest
-2
-You fed your Pokemon!
-
-Please make a selection from the options below.
-1. Show stats
-2. Feed
-3. Play
-4. Give Bath
-5. Heal
-6. Evolve
-7. Fight Trainer
-8. Feed Candy
-9. Rest
-3
-Your Pokemon is playing!
-
-Please make a selection from the options below.
-1. Show stats
-2. Feed
-3. Play
-4. Give Bath
-5. Heal
-6. Evolve
-7. Fight Trainer
-8. Feed Candy
-9. Rest
-1
-Evolution:Shinx
-Health: 110
-Happiness:10
-Energy:45
-Hunger:25
-
-Please make a selection from the options below.
-1. Show stats
-2. Feed
-3. Play
-4. Give Bath
-5. Heal
-6. Evolve
-7. Fight Trainer
-8. Feed Candy
-9. Rest
-7
-Your pokemon is fighting a trainer!
-Your pokemon won the fight!
-
-Please make a selection from the options below.
-1. Show stats
-2. Feed
-3. Play
-4. Give Bath
-5. Heal
-6. Evolve
-7. Fight Trainer
-8. Feed Candy
-9. Rest
-6
-Shinx is not happy enough to evolve.
-
-Please make a selection from the options below.
-1. Show stats
-2. Feed
-3. Play
-4. Give Bath
-5. Heal
-6. Evolve
-7. Fight Trainer
-8. Feed Candy
-9. Rest
-0
-Thanks for playing!
+Happiness: 0
+Energy: 50
+Hunger: 20
 
 ```
 
