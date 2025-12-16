@@ -3,9 +3,9 @@
  * such as type, evolution stage, happiness, energy, health, and hunger.
  * It provides methods to interact with and modify the Pokémon's state.
  * 
- * Author: Natalee Ngo
- * Collaborators: Ashlynn Kirchoff, Jacob Le, Rin Ryu
- * Date: December 15, 2025
+ * @author Natalee Ngo
+ * @collaborators Ashlynn Kirchoff, Jacob Le, Rin Ryu
+ * @version 12/15/2025
  * 
  */
 public class cleffa implements Pokemon {

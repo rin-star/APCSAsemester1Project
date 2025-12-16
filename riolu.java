@@ -4,8 +4,8 @@
  * to display stats and feed the Pokemon.
  * 
  * @author Ashlynn Kirchoff
- * @author collaborator: VS Copilot
- * @updated 12/15/2025
+ * @collaborators VS Copilot, Natalee Ngo, Jacob Le, Rin Ryu
+ * @version 12/15/2025
  */
 
 public class riolu implements Pokemon {

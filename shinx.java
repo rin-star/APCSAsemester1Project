@@ -4,7 +4,7 @@
  * Tracks health, energy, hunger, happiness, and evolution stage.
  * 
  * @author Rin Ryu
- * @collaborators ChatGPT
+ * @collaborators ChatGPT, Ashlynn Kirchoff, Jacob Le, Natalee Ngo
  * @version 12/15/25
  */
 public class shinx implements Pokemon {

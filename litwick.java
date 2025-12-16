@@ -4,7 +4,7 @@
  * with it in the game.
  *
  * @author Jacob Le
- * @collaborators Perplexity.ai
+ * @collaborators Perplexity.ai, Natalee Ngo, Ashlynn Kirchoff, Rin Ryu
  * @version 12/15/2025
  */
 public class litwick implements Pokemon {
