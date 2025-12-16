@@ -2,10 +2,14 @@ import java.util.Scanner;
 /**
  * The main class for the Pokemon game.
  * This class allows the user to create a Pokemon, interact with it, and play the game.
+ * 
+ * Author: Natalee Ngo
+ * Collaborators: Ashlynn Kirchoff, Jacob Le, Rin Ryu
+ * Date: December 15, 2025
+ * 
  */
 public class main {
 
-    public String pokemonName;
     /**
      * The main method serves as the entry point for the program.
      * It initializes the game, allows the user to create a Pokemon, and provides a menu for interaction.
@@ -21,9 +25,11 @@ public class main {
         Pokemon currentPokemon = createPokemon(userInput);
         System.out.println("You created a pokemon!");
         
-        while (currentPokemon.getHealth() >= 0 && continuePlaying) {
+        while (currentPokemon.getHealth() > 0 && continuePlaying) {
             menu();
+            Inventory.randomEvent();
             int userNum = input.nextInt();
+            input.nextLine(); // Consume newline
             if (userNum == 0) {
                 continuePlaying = false;
             }
@@ -97,10 +103,18 @@ public class main {
         }
         else if (userNum == 8) {
             Scanner input = new Scanner(System.in);
-            System.out.print("What candy do you want to feed your pokemon?(big, small): ");
-            String candyInput = input.nextLine();
-            pokemon.feedCandy(candyInput);
+            if (Inventory.getBigCandy() == 0 && Inventory.getSmallCandy() == 0){
+                System.out.println("You have no candy to feed your pokemon.");
+            }
+            else {
+
+            
+                System.out.print("What candy do you want to feed your pokemon?(big, small): ");
+                String candyInput = input.nextLine();
+                pokemon.feedCandy(candyInput);
+            }
         }
+        
         else if (userNum == 9) {
             pokemon.rest();
         }
